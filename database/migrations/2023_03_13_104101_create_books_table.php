@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('style_id')->nullable();
+            $table->year('year_of_release');
             $table->string('image')->nullable();
             $table->boolean('is_available')->default(1);
             $table->timestamps();
