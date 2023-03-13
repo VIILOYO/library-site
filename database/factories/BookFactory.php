@@ -25,7 +25,7 @@ class BookFactory extends Factory
             'description' => $this->faker->paragraphs(3, true),
             'author_id' => Author::get()->random()->id,
             'style_id' => Style::get()->random()->id,
-            'image' => $this->faker->imageUrl(640, 480, 'books', true),
+            'image' => $this->faker->imageUrl(420, 520, 'books', true),
             'year_of_release' => $this->faker->dateTime()->format('Y'),
             'is_available' => 1,
         ];
