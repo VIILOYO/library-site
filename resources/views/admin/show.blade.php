@@ -4,7 +4,7 @@
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{ $book->image }}" class="img-fluid rounded-start" alt="Обложка">
+            <img src="{{ asset($book->image) }}" width="480" height="640" class="img-fluid rounded-start" alt="Обложка">
         </div>
         <div class="col-md-8">
             <div class="card-body">

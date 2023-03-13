@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{ route('admin.store') }}" method="post">
+<form action="{{ route('admin.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="title" class="form-label">Название книги</label>
@@ -35,6 +35,11 @@
     <div class="mb-3">
         <label for="year_of_release" class="form-label">Год издания</label>
         <input name="year_of_release" type="text" class="form-control" placeholder="Год издания">
+    </div>
+
+    <div class="mb-3">
+        <label for="image" class="form-label">Изображение</label>
+        <input name="image" class="form-control" type="file" id="image">
     </div>
 
     <div class="col-auto">
