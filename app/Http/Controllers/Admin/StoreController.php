@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreRequest;
 use App\Models\Book;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class StoreController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(StoreRequest $request)
     {
-        $data = $request->only('title', 'description', 'author_id', 'style_id', 'year_of_release', 'image');
+        $data = $request->validated();
 
+        // Добавление изображения 
         $fileName = time().$request->file('image')->getClientOriginalName();
-        $imagePath = $request->file('image')->store('images/books', 'public');
         $imagePath = $request->file('image')->storeAs('images', $fileName, 'public');
         $data['image'] = '/storage/' . $imagePath;
 
