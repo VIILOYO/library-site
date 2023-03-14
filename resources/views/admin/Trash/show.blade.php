@@ -12,18 +12,19 @@
                 <p class="card-text">{{ $book->description }}</p>
                 <p class="card-text">
                     <small class="text-muted">
-                        Автор: <a href="{{ route('admin.author.index', $book->author->id) }}">{{ $book->author->first_name }} {{ $book->author->last_name }}</a>
+                        Автор: {{ $book->author->first_name }} {{ $book->author->last_name }}
                     </small>
                 </p>
-                <form action="{{ route('admin.edit', $book->id) }}" method="get" style="float: left;">
+                <form action="{{ route('admin.trash.restore', $book->id) }}" method="get" style="float: left;">
                     @csrf
-                    <button type="submit" class="btn btn-success">Редактировать</button>
+                    <button type="submit" class="btn btn-success">Восстановить</button>
                 </form>
 
-                <form action="{{ route('admin.destroy', $book->id) }}" method="post">
+                <form action="{{ route('admin.trash.forceDelete', $book->id) }}" method="post" style="float: left;">
                     @csrf
                     @method('delete')
-                <button type="submit" class="btn btn-danger">Удалить</button>
+                    <button type="submit" class="btn btn-danger">Удалить безвозвратно</button>
+                </form>
             </form>
             </div>
         </div>
