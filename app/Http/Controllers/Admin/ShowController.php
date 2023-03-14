@@ -11,10 +11,8 @@ class ShowController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(string $id)
+    public function __invoke(Book $book)
     {
-        $book = Book::findOrFail($id);
-
         return view('admin.show', compact('book'));
     }
 }

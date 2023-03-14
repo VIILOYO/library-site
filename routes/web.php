@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\EditController;
+use App\Http\Controllers\Admin\UpdateController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,6 +20,8 @@ Route::group([
     Route::post('/', StoreController::class)->name('store');
     Route::get('/create', CreateController::class)->name('create');
     Route::get('/{book}', ShowController::class)->name('show');
+    Route::get('/{book}/edit', EditController::class)->name('edit');
+    Route::put('/{book}', UpdateController::class)->name('update');
     Route::group([
         'namespace' => 'Author', 
         'prefix' => 'author', 

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
 @section('content')
 <div class="card mb-3">
@@ -15,6 +15,11 @@
                         Автор: <a href="{{ route('admin.author.index', $book->author->id) }}">{{ $book->author->first_name }} {{ $book->author->last_name }}</a>
                     </small>
                 </p>
+                <form action="{{ route('admin.edit', $book->id) }}" method="get" style="float: left;">
+                    @csrf
+                    <button type="submit" class="btn btn-success">Редактировать</button>
+                </form>
+
             </div>
         </div>
     </div>
