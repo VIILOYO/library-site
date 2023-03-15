@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\DestroyController;
-use App\Http\Controllers\Admin\EditController;
-use App\Http\Controllers\Admin\TrashController;
-use App\Http\Controllers\Admin\UpdateController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,9 +34,10 @@ Route::group([ // Админ панель
     Route::group([ // Авторы
         'namespace' => 'Author', 
         'prefix' => 'author', 
-        'as' => 'author.',
+        'as' => 'authors.',
     ], function() {
-            Route::get('/{author}', IndexController::class)->name('index');
+            Route::get('/', IndexController::class)->name('index');
+            Route::get('/{author}', ShowController::class)->name('show');
             Route::get('/create', CreateController::class)->name('create');
         });
 });

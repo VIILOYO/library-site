@@ -19,4 +19,9 @@ class Book extends Model
     {
         return $this->BelongsTo(Author::class, 'author_id');
     }
+
+    public function style(): BelongsTo
+    {
+        return $this->belongsTo(Style::class, 'style_id');
+    }
 }

@@ -1,7 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <!-- Вывод всех постов -->
+    @if (isset($author))
+        <h4>Автор: {{ $author->first_name }} {{ $author->last_name }}</h4>
+    @endif
+    <!-- Вывод всех книг -->
+    <div class="card-header">
+        Список книг
+    </div>
     @foreach ($books as $book)
     <div class="card mb-3">
         <div class="card-body">

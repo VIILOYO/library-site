@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin\Author;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
+use App\Models\Author;
 
 class IndexController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(string $author)
+    public function __invoke()
     {
-        $books = Book::where('is_available', 1)->where('author_id', $author)->paginate(10);
+        $authors = Author::paginate(10);
         
-        return view('admin.index', compact('books'));
+        return view('admin.author.index', compact('authors'));
     }
 }

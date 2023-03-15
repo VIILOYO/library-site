@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- Вывод всех постов -->
+    <!-- Вывод всех книг -->
     @foreach ($books as $book)
     <div class="card mb-3">
         <div class="card-body">
