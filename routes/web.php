@@ -50,4 +50,5 @@ Route::group([ // Часть для обычных юзеров
 ], function () {
     Route::get('/', IndexController::class)->name('index');
     Route::get('/{book}', ShowController::class)->name('show');
+    Route::get('/author/{author}', IndexController::class)->name('authors.index');
 });

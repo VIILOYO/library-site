@@ -12,7 +12,7 @@
                 <p class="card-text">{{ $book->description }}</p>
                 <p class="card-text">
                     <small class="text-muted">
-                        Автор: <a href="{{ route('admin.author.index', $book->author->id) }}">{{ $book->author->first_name }} {{ $book->author->last_name }}</a>
+                        Автор: <a href="{{ route('books.authors.index', $book->author->id) }}">{{ $book->author->first_name }} {{ $book->author->last_name }}</a>
                     </small>
                 </p>
             </div>

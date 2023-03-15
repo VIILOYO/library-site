@@ -10,9 +10,13 @@ class IndexController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke()
+    public function __invoke($author = null)
     {
-        $books = Book::where('is_available', 1)->paginate(10);
+        if($author !== null) {
+            $books = Book::where('is_available', 1)->where('author_id', $author)->paginate(10);
+        } else {
+            $books = Book::where('is_available', 1)->paginate(10);
+        }
 
         return view('books.index', compact('books'));
     }
