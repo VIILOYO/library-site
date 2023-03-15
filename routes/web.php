@@ -37,8 +37,9 @@ Route::group([ // Админ панель
         'as' => 'authors.',
     ], function() {
             Route::get('/', IndexController::class)->name('index');
-            Route::get('/{author}', ShowController::class)->name('show');
+            Route::get('/{author}', ShowController::class)->whereNumber('author')->name('show');
             Route::get('/create', CreateController::class)->name('create');
+            Route::post('/', StoreController::class)->name('store');
         });
 });
 

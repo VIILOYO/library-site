@@ -31,9 +31,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle px-0">
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle px-0">
                                 <i class="fa-solid fa-square-caret-down"></i><span class="ms-1 d-none d-sm-inline"> Библиотека</span></a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="{{ route('admin.index') }}" class="nav-link px-0">
                                         <span class="d-none d-sm-inline"><i class="fa-solid fa-house"></i> Книги</span>
@@ -52,13 +52,29 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.create') }}" class="nav-link align-middle px-0">
-                                <i class="fa-solid fa-book"></i> <span class="ms-1 d-none d-sm-inline">Добавить книгу</span>
-                            </a>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle px-0">
+                                <i class="fa-solid fa-square-caret-down"></i><span class="ms-1 d-none d-sm-inline"> Добавить</span></a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="{{ route('admin.create') }}" class="nav-link align-middle px-0">
+                                        <i class="fa-solid fa-book"></i> <span class="ms-1 d-none d-sm-inline">Добавить книгу</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.authors.create') }}" class="nav-link px-0">
+                                        <span class="d-none d-sm-inline"><i class="fa-solid fa-users"></i>Добавить автора</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-0">
+                                        <span class="d-none d-sm-inline"><i class="fa-solid fa-book-bookmark"></i>Добавить жанр</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.trash.index') }}" class="nav-link align-middle px-0">
-                                <i class="fa-solid fa-trash"></i> <span class="ms-1 d-none d-sm-inline">Удаленные книги</span>
+                                <i class="fa-solid fa-trash"></i> <span class="ms-1 d-none d-sm-inline">Удаленные книгу</span>
                             </a>
                         </li>
                     </ul>
