@@ -11,10 +11,9 @@ class ShowController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(string $id)
+    public function __invoke(Author $author)
     {
-        $books = Book::where('author_id', $id)->paginate(10);
-        $author = Author::findOrFail($id);
+        $books = Book::where('author_id', $author->id)->paginate(10);
 
         return view('admin.index', compact('books', 'author'));
     }

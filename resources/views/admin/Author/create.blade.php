@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{ route('admin.authors.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('admin.authors.store') }}" method="post">
     @csrf
     <div class="mb-3">
         <label for="first_name" class="form-label">Имя</label>

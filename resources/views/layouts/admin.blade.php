@@ -45,7 +45,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0">
+                                    <a href="{{ route('admin.styles.index') }}" class="nav-link px-0">
                                         <span class="d-none d-sm-inline"><i class="fa-solid fa-book-bookmark"></i> Жанры</span>
                                     </a>
                                 </li>
@@ -66,7 +66,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0">
+                                    <a href="{{ route('admin.styles.create') }}" class="nav-link px-0">
                                         <span class="d-none d-sm-inline"><i class="fa-solid fa-book-bookmark"></i>Добавить жанр</span>
                                     </a>
                                 </li>

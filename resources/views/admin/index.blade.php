@@ -3,6 +3,8 @@
 @section('content')
     @if (isset($author))
         <h4>Автор: {{ $author->first_name }} {{ $author->last_name }}</h4>
+    @elseif (isset($style))
+        <h4>Жанр: {{ $style->title }}</h4>
     @endif
     <!-- Вывод всех книг -->
     <div class="card-header">

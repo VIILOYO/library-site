@@ -41,6 +41,16 @@ Route::group([ // Админ панель
             Route::get('/create', CreateController::class)->name('create');
             Route::post('/', StoreController::class)->name('store');
         });
+    Route::group([ // Стили
+        'namespace' => 'Style', 
+        'prefix' => 'style', 
+        'as' => 'styles.',
+    ], function() {
+            Route::get('/', IndexController::class)->name('index');
+            Route::get('/{style}', ShowController::class)->whereNumber('style')->name('show');
+            Route::get('/create', CreateController::class)->name('create');
+            Route::post('/', StoreController::class)->name('store');
+        });
 });
 
 Route::group([ // Часть для обычных юзеров
