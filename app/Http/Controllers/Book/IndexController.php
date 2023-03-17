@@ -14,6 +14,7 @@ class IndexController extends Controller
      */
     public function __invoke($author = null)
     {
+        $authors = [];
         if($author !== null) {
             $books = Book::where('is_available', 1)
                             ->where('author_id', $author)
@@ -24,13 +25,19 @@ class IndexController extends Controller
             $books = Book::where('is_available', 1)->paginate(10);
         }
 
-        if(isset($_GET['search'])) {
+        if(isset($_GET['search']) && $_GET['search'] !== '') {
             $books = DB::table('books')
                         ->where('is_available', 1)
                         ->where('title', 'like', "%{$_GET['search']}%")
-                        ->orWhere('description', 'like', "%{$_GET['search']}%")->paginate(10);
+                        ->orWhere('description', 'like', "%{$_GET['search']}%")
+                        ->paginate(10);
+
+            $authors = DB::table('authors')
+                            ->where('first_name', 'like', "%{$_GET['search']}%")
+                            ->orWhere('last_name', 'like', "%{$_GET['search']}%")
+                            ->get();
         }
 
-        return view('books.index', compact('books', 'author'));
+        return view('books.index', compact('books', 'author', 'authors'));
     }
 }

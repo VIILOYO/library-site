@@ -6,6 +6,18 @@
     @elseif (isset($style))
         <h4>Жанр: {{ $style->title }}</h4>
     @endif
+
+    @if (count($authors) !== 0)
+        <div class="card" style="width: 18rem;">
+            <li class="list-group-item">Авторы:</li>
+            <ul class="list-group list-group-flush">
+                @foreach ($authors as $author)
+                    <li class="list-group-item"><a href="{{ route('books.authors.index', $author->id) }}">{{ $author->first_name }} {{ $author->last_name }}</a></li>
+                @endforeach
+            </ul>
+    </div>
+    <hr>
+    @endif
     <div class="card-header">
         Список книг
     </div>
