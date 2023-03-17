@@ -8,6 +8,9 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
+                <small class="text-muted">
+                    Жанр: <a href="{{ route('books.authors.index', $book->author->id) }}">{{ $book->style->title }}</a>
+                </small>
                 <h5 class="card-title">{{ $book->title }}</h5>
                 <p class="card-text">{{ $book->description }}</p>
                 <p class="card-text">

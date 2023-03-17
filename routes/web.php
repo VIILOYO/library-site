@@ -62,3 +62,13 @@ Route::group([ // Часть для обычных юзеров
     Route::get('/{book}', ShowController::class)->name('show');
     Route::get('/author/{author}', IndexController::class)->name('authors.index');
 });
+
+Route::group([ // Авторы для юзеров
+    'namespace' => 'App\Http\Controllers\Style',
+    'prefix' => 'styles',
+    'as' => 'styles.',
+], function () {
+    Route::get('/', IndexController::class)->name('index');
+    Route::get('/{style}', ShowController::class)->name('show');
+});
+

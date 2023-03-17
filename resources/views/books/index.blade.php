@@ -7,7 +7,7 @@
         <h4>Жанр: {{ $style->title }}</h4>
     @endif
 
-    @if (count($authors) !== 0)
+    @if (isset($authors) && count($authors) !== 0)
         <div class="card" style="width: 18rem;">
             <li class="list-group-item">Авторы:</li>
             <ul class="list-group list-group-flush">

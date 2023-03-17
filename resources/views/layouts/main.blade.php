@@ -25,6 +25,9 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Главная страница</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('styles.index') }}">Жанры</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}">Админ панель</a>
                     </li>
                 </ul>

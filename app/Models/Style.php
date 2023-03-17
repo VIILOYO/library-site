@@ -11,4 +11,9 @@ class Style extends Model
 
     protected $table = 'styles';
     protected $guarded = [];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'style_id');
+    }
 }
