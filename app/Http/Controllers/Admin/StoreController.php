@@ -23,6 +23,6 @@ class StoreController extends Controller
 
         $book = Book::firstOrCreate($data);
 
-        return redirect()->route('books.show', $book->id);
+        return redirect()->route('admin.show', $book->id);
     }
 }
