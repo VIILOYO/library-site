@@ -1,10 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="card-header">
-        Список жанром
-    </div>
-    <!-- Вывод всех книг -->
+    @if (isset($request->search))
+        <h4>Результат поиска по: {{ $request->search }}</h4>
+        <hr>
+    @endif
+    <!-- Вывод всех жанров -->
+    @if (count($styles) == 0)
+        <h2>К сожалению такого жанра у нас нет!</h2>
+    @else
+        <div class="card-header">
+            Список жанров
+        </div>
+    @endif
+
     @foreach ($styles as $style)
     <div class="card mb-3">
         <div class="card-body">

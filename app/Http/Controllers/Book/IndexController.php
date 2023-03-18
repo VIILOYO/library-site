@@ -15,23 +15,16 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $authors = [];
-        
-        $books = Book::where('is_available', 1)->paginate(10);
-
         if(isset($request->search)) {
             $books = DB::table('books')
                         ->where('is_available', 1)
                         ->where('title', 'like', "%{$request->search}%")
                         ->orWhere('description', 'like', "%{$request->search}%")
                         ->paginate(10);
-
-            $authors = DB::table('authors')
-                            ->where('first_name', 'like', "%{$request->search}%")
-                            ->orWhere('last_name', 'like', "%{$request->search}%")
-                            ->get();
+        } else {
+            $books = Book::where('is_available', 1)->paginate(10);
         }
 
-        return view('books.index', compact('books', 'authors'));
+        return view('books.index', compact('books', 'request'));
     }
 }

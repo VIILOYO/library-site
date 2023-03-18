@@ -1,27 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-    @if (isset($author))
-        <h4>Автор: {{ $author->first_name }} {{ $author->last_name }}</h4>
-    @elseif (isset($style))
-        <h4>Жанр: {{ $style->title }}</h4>
+    @if (isset($request->search))
+        <h4>Результат поиска по: {{ $request->search }}</h4>
+        <hr>
+    @endif
+    <!-- Вывод всех книг -->
+    @if (count($books) == 0)
+        <h2>К сожалению таких книг у нас нет!</h2>
+    @else
+        <div class="card-header">
+            Список книг
+        </div>
     @endif
 
-    @if (isset($authors) && count($authors) !== 0)
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item">Авторы:</li>
-            <ul class="list-group list-group-flush">
-                @foreach ($authors as $author)
-                    <li class="list-group-item"><a href="{{ route('authors.show', $author->id) }}">{{ $author->first_name }} {{ $author->last_name }}</a></li>
-                @endforeach
-            </ul>
-    </div>
-    <hr>
-    @endif
-    <div class="card-header">
-        Список книг
-    </div>
-    <!-- Вывод всех книг -->
     @foreach ($books as $book)
     <div class="card mb-3">
         <div class="card-body">
