@@ -30,9 +30,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('styles.index') }}">Жанры</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}">Админ панель</a>
-                    </li>
+                    @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}">Админ панель</a>
+                        </li>
+                    @endcan
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li>

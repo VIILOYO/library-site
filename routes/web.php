@@ -11,7 +11,8 @@ Route::get('/', function () {
 
 Route::group([ // Админ панель
     'namespace' => 'App\Http\Controllers\Admin', 
-    //'middleware' => 'auth', 
+    'middleware' => 'auth', 
+    'middleware' => 'admin',
     'prefix' => 'admin', 
     'as' => 'admin.',
 ], function () {
