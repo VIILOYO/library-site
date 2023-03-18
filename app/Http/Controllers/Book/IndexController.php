@@ -13,18 +13,11 @@ class IndexController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, $author = null)
+    public function __invoke(Request $request)
     {
         $authors = [];
-        if($author !== null) {
-            $books = Book::where('is_available', 1)
-                            ->where('author_id', $author)
-                            ->paginate(10);
-                            
-            $author = Author::findOrFail($author);
-        } else {
-            $books = Book::where('is_available', 1)->paginate(10);
-        }
+        
+        $books = Book::where('is_available', 1)->paginate(10);
 
         if(isset($request->search)) {
             $books = DB::table('books')
@@ -39,6 +32,6 @@ class IndexController extends Controller
                             ->get();
         }
 
-        return view('books.index', compact('books', 'author', 'authors'));
+        return view('books.index', compact('books', 'authors'));
     }
 }

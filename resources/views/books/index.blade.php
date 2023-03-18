@@ -12,7 +12,7 @@
             <li class="list-group-item">Авторы:</li>
             <ul class="list-group list-group-flush">
                 @foreach ($authors as $author)
-                    <li class="list-group-item"><a href="{{ route('books.authors.index', $author->id) }}">{{ $author->first_name }} {{ $author->last_name }}</a></li>
+                    <li class="list-group-item"><a href="{{ route('authors.show', $author->id) }}">{{ $author->first_name }} {{ $author->last_name }}</a></li>
                 @endforeach
             </ul>
     </div>
