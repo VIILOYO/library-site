@@ -87,6 +87,14 @@
         </div>
     </div>
 
-</body>
+    <footer>
+        <ul>
+            <a href="https://yandex.ru/maps/64/kemerovo/house/ulitsa_dzerzhinskogo_19/bE8YdgBkSUMDQFtvfX91eX1ibQ==/?ll=86.076374%2C55.346892&z=17.08"><li>Адрес: г.Кемерово улица Дзержинского, 19</li></a>
+            <a href="https://vk.com/viiiloyo"><li>ВК: Алексей Бабенко</li></a>
+            <a href="https://github.com/VIILOYO/library-site"><li>GitHub проекта</li></a>
+            <a href="https://t.me/VIILOYO"><li>Телеграм: Алексей Бабенко</li></a>
+        </ul>
+    </footer>
 
+</body>
 </html>
