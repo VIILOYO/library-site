@@ -18,6 +18,20 @@
                         Автор: <a href="{{ route('authors.show', $book->author->id) }}">{{ $book->author->first_name }} {{ $book->author->last_name }}</a>
                     </small>
                 </p>
+                @auth()
+                    @if(auth()->user()->books->contains($book))
+                        <form action="{{ route('books.unfavorite', [$book->id]) }}" method="get">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Убрать из избранного</button>
+                        </form>
+                    @else()
+                        <form action="{{ route('books.favorite', [$book->id]) }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-light">Изранное</button>
+                        </form>
+                    @endif
+                @endauth
             </div>
         </div>
     </div>

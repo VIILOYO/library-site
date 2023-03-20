@@ -3,7 +3,6 @@
 @section('content')
     @if (isset($request->search))
         <h4>Результат поиска по: {{ $request->search }}</h4>
-        <hr>
     @endif
     <!-- Вывод всех жанров -->
     @if (count($styles) == 0)

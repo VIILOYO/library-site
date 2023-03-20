@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavoriteBooksController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +63,8 @@ Route::group([ // Часть для обычных юзеров
 ], function () {
     Route::get('/', IndexController::class)->name('index');
     Route::get('/{book}', ShowController::class)->name('show');
+    Route::get('/{book}/favorite', FavoriteController::class)->name('favorite');
+    Route::get('/{book}/unfavorite', UnfavoriteController::class)->name('unfavorite');
 });
 
 Route::group([ // Авторы для юзеров
@@ -82,7 +85,7 @@ Route::group([ // Авторы для юзеров
     Route::get('/{author}', ShowController::class)->name('show');
 });
 
-
+Route::get('/favorites', FavoriteBooksController::class)->name('favorites');
 
 Auth::routes();
 

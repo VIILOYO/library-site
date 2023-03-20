@@ -17,9 +17,9 @@ class IndexController extends Controller
         if(isset($request->search)) {
             $styles = DB::table('styles')
                         ->where('title', 'like', "%{$request->search}%")
-                        ->paginate(10);
+                        ->paginate(9);
         } else {
-            $styles = Style::paginate(10);
+            $styles = Style::paginate(9);
         }
 
         return view('styles.index', compact('styles', 'request'));
