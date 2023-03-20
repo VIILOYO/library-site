@@ -18,11 +18,11 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('books.index') }}">Библиотека</a>
+            <a class="navbar-brand" href="{{ route('main') }}">Библиотека</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Главная страница</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Книги</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('authors.index') }}">Авторы</a>
@@ -84,7 +84,21 @@
         </div>
     </nav>
 
-    <div class="container mt-3">
+    <div class="left">
+        <h5>Новости библиотеки</h5>
+        <div class="list-group element">
+        @foreach ($posts as $post)
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex">
+                    <h5 class="title">{{ \Illuminate\Support\Str::limit($post->title, 20, $end='...') }}</h5>
+                    <small>{{ $post->created_at }}</small>
+                </div>
+            </a>
+        @endforeach
+        </div>
+    </div>
+
+    <div class="container mt-3 content">
         <div class="row">
             <div class="col-12">
                 @yield('content')

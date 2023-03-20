@@ -19,9 +19,9 @@ class IndexController extends Controller
             $authors = DB::table('authors')
                         ->where('first_name', 'like', "%{$request->search}%")
                         ->orWhere('last_name', 'like', "%{$request->search}%")
-                        ->paginate(9);
+                        ->paginate(10);
         } else {
-            $authors = Author::paginate(9);
+            $authors = Author::paginate(10);
         }
 
         return view('authors.index', compact('authors', 'request'));

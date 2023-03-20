@@ -22,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('posts', Post::orderByDesc('created_at')->limit(5)->get());
-        Paginator::defaultView('vendor.pagination.bootstrap-5');
+        View::composer(['authors/*', 'books/*', 'styles/*', 'favorites'])
     }
 }

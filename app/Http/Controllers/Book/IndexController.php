@@ -20,9 +20,9 @@ class IndexController extends Controller
                         ->where('is_available', 1)
                         ->where('title', 'like', "%{$request->search}%")
                         ->orWhere('description', 'like', "%{$request->search}%")
-                        ->paginate(9);
+                        ->paginate(10);
         } else {
-            $books = Book::where('is_available', 1)->paginate(9);
+            $books = Book::where('is_available', 1)->paginate(10);
         }
 
         return view('books.index', compact('books', 'request'));

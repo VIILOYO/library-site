@@ -1,14 +1,12 @@
 <?php
 
 use App\Http\Controllers\FavoriteBooksController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return redirect()->route('books.index');
-});
-
+Route::get('/', MainController::class)->name('main');
 
 Route::group([ // Админ панель
     'namespace' => 'App\Http\Controllers\Admin', 
