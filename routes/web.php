@@ -2,17 +2,19 @@
 
 use App\Http\Controllers\FavoriteBooksController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', MainController::class)->name('main');
+Route::get('/{post}', PostController::class)->name('show')->whereNumber('post');
 
 Route::group([ // Админ панель
-    'namespace' => 'App\Http\Controllers\Admin', 
-    'middleware' => 'auth', 
+    'namespace' => 'App\Http\Controllers\Admin',
+    'middleware' => 'auth',
     'middleware' => 'admin',
-    'prefix' => 'admin', 
+    'prefix' => 'admin',
     'as' => 'admin.',
 ], function () {
     Route::get('/', IndexController::class)->name('index');
@@ -24,34 +26,45 @@ Route::group([ // Админ панель
     Route::delete('/{book}', DestroyController::class)->name('destroy')->whereNumber('book');
     Route::group([ // Удаленные книги
         'controller' => TrashController::class,
-        'prefix' => 'trash', 
+        'prefix' => 'trash',
         'as' => 'trash.',
-    ], function() {
+    ], function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{book}', 'show')->name('show');
         Route::get('/{book}/restore', 'restore')->name('restore');
         Route::delete('/{book}/forceDelete', 'forceDelete')->name('forceDelete');
-        });
+    });
     Route::group([ // Авторы
-        'namespace' => 'Author', 
-        'prefix' => 'author', 
+        'namespace' => 'Author',
+        'prefix' => 'author',
         'as' => 'authors.',
-    ], function() {
-            Route::get('/', IndexController::class)->name('index');
-            Route::get('/{author}', ShowController::class)->whereNumber('author')->name('show');
-            Route::get('/create', CreateController::class)->name('create');
-            Route::post('/', StoreController::class)->name('store');
-        });
+    ], function () {
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/{author}', ShowController::class)->whereNumber('author')->name('show');
+        Route::get('/create', CreateController::class)->name('create');
+        Route::post('/', StoreController::class)->name('store');
+    });
     Route::group([ // Стили
-        'namespace' => 'Style', 
-        'prefix' => 'style', 
+        'namespace' => 'Style',
+        'prefix' => 'style',
         'as' => 'styles.',
-    ], function() {
-            Route::get('/', IndexController::class)->name('index');
-            Route::get('/{style}', ShowController::class)->whereNumber('style')->name('show');
-            Route::get('/create', CreateController::class)->name('create');
-            Route::post('/', StoreController::class)->name('store');
-        });
+    ], function () {
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/{style}', ShowController::class)->whereNumber('style')->name('show');
+        Route::get('/create', CreateController::class)->name('create');
+        Route::post('/', StoreController::class)->name('store');
+    });
+    Route::group([ // Посты
+        'namespace' => 'Post',
+        'prefix' => 'post',
+        'as' => 'posts.',
+    ], function () {
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/{post}', ShowController::class)->whereNumber('post')->name('show');
+        Route::delete('/{post}', DestroyController::class)->name('destroy')->whereNumber('post');
+        // Route::get('/create', CreateController::class)->name('create');
+        // Route::post('/', StoreController::class)->name('store');
+    });
 });
 
 Route::group([ // Часть для обычных юзеров

@@ -9,7 +9,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $post->title }}</h5>
             <p class="card-text">{{ \Illuminate\Support\Str::limit($post->content, 50, $end='...') }}</p>
-            <a href="#" class="btn btn-primary">Читать</a>
+            <a href="{{ route('show', $post->id) }}" class="btn btn-primary">Читать</a>
         </div>
     </div>
     @endforeach

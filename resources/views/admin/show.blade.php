@@ -26,8 +26,8 @@
                 <form action="{{ route('admin.destroy', $book->id) }}" method="post">
                     @csrf
                     @method('delete')
-                <button type="submit" class="btn btn-danger">Удалить</button>
-            </form>
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </form>
             </div>
         </div>
     </div>

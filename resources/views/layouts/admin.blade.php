@@ -49,6 +49,11 @@
                                         <span class="d-none d-sm-inline"><i class="fa-solid fa-book-bookmark"></i> Жанры</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('admin.posts.index') }}" class="nav-link px-0">
+                                        <span class="d-none d-sm-inline"><i class="fa-solid fa-comment"></i> Посты</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
