@@ -75,11 +75,16 @@
                                         <span class="d-none d-sm-inline"><i class="fa-solid fa-book-bookmark"></i>Добавить жанр</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('admin.posts.create') }}" class="nav-link px-0">
+                                        <span class="d-none d-sm-inline"><i class="fa-solid fa-comment"></i>Добавить пост</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.trash.index') }}" class="nav-link align-middle px-0">
-                                <i class="fa-solid fa-trash"></i> <span class="ms-1 d-none d-sm-inline">Удаленные книгу</span>
+                                <i class="fa-solid fa-trash"></i> <span class="ms-1 d-none d-sm-inline">Удаленные книги</span>
                             </a>
                         </li>
                     </ul>

@@ -11,7 +11,7 @@
                     {{ $post->created_at }}
                 </small>
                 </p>
-                <form action="" method="get" style="float: left;">
+                <form action="{{ route('admin.posts.edit', $post->id) }}" method="get" style="float: left;">
                     @csrf
                     <button type="submit" class="btn btn-success">Редактировать</button>
                 </form>

@@ -87,11 +87,10 @@
     <div class="left">
         <h5>Новости библиотеки</h5>
         <div class="list-group element">
-        @foreach ($posts as $post)
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+        @foreach ($sidebarPosts as $sidebarPost)
+            <a href="{{ route('show', $sidebarPost->id) }}" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex">
-                    <h5 class="title">{{ \Illuminate\Support\Str::limit($post->title, 20, $end='...') }}</h5>
-                    <small>{{ $post->created_at }}</small>
+                    <h5 class="title">{{ \Illuminate\Support\Str::limit($sidebarPost->title, 20, $end='...') }}</h5>
                 </div>
             </a>
         @endforeach

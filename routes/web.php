@@ -62,8 +62,10 @@ Route::group([ // Админ панель
         Route::get('/', IndexController::class)->name('index');
         Route::get('/{post}', ShowController::class)->whereNumber('post')->name('show');
         Route::delete('/{post}', DestroyController::class)->name('destroy')->whereNumber('post');
-        // Route::get('/create', CreateController::class)->name('create');
-        // Route::post('/', StoreController::class)->name('store');
+        Route::get('/{post}/edit', EditController::class)->name('edit');
+        Route::put('/{post}', UpdateController::class)->name('update')->whereNumber('post');
+        Route::get('/create', CreateController::class)->name('create');
+        Route::post('/', StoreController::class)->name('store');
     });
 });
 
